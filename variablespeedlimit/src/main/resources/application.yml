@@ -1,0 +1,9 @@
+vissim:
+  file-path: "E:\\JAVALearn\\VariableSpeedLimit\\vissim\\LaneClose\\"
+  file-name: "laneclose"
+
+simulation:
+  simulation-time: 100
+  resolution: 1
+  speed: 1
+  random-seed: 4
