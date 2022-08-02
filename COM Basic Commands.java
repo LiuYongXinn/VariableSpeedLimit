@@ -186,8 +186,8 @@ public class COM_Basic_Commands
         // Method #1: Loop over all Vehicles:
         ActiveXComponent vehicles = net.invokeGetComponent("Vehicles");
         // get all vehicles in the network at the actual simulation second
-        Variant[] vehicleArray = Dispatch.invoke(vehicles, "GetAll", Dispatch.Method, new Object[0], new int[1]).toSafeArray()
-                .toVariantArray();
+        Variant[] vehicleArray = Dispatch.invoke(vehicles, "GetAll", Dispatch.Method, new Object[0], new int[1])
+                .toSafeArray().toVariantArray();
         System.out.println("Loop over all Vehicles:");
         for (int i = 0; i < vehicleArray.length; i++)
         {

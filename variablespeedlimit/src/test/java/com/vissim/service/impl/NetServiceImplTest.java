@@ -36,7 +36,12 @@ class NetServiceImplTest {
     }
 
 
+    @Test
+    public void testGetVehiclesInSimulation(){
 
+
+
+    }
 
 
 

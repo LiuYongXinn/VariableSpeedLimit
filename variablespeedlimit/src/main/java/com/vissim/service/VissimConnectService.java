@@ -6,6 +6,8 @@ public interface VissimConnectService {
 
     void initVissim();
 
+    ActiveXComponent getVissim();
+
     ActiveXComponent getSimulation();
 
     ActiveXComponent getNet();

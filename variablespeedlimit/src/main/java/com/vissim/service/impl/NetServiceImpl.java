@@ -2,6 +2,7 @@ package com.vissim.service.impl;
 
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
+import com.jacob.com.EnumVariant;
 import com.jacob.com.Variant;
 import com.vissim.service.NetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,19 +46,35 @@ public class NetServiceImpl implements NetService {
     }
 
 
+    //设置减速区域速度
     public void getDesiredSpeedDecisionByNo(Integer no, Integer limitSpeed, Integer vehicleType){
         ActiveXComponent area = reducedSpeedAreas.invokeGetComponent("GetReducedSpeedAreaByNumber", new Variant(no));
         Dispatch.invoke(area, "AttValue1", Dispatch.Put, new Object[]{"DesiredSpeed",vehicleType, limitSpeed}, new int[1]);
     }
 
+    //设置车辆输入流量
     @Override
     public void setVehicleInputByNo(Integer no, Integer volume) {
         ActiveXComponent vehicleInput = vehicleInputs.invokeGetComponent("GetVehicleInputByNumber", new Variant(no));
         Dispatch.invoke(vehicleInput,"AttValue", Dispatch.Put, new Object[]{"Volume", volume}, new int[1]);
     }
 
+    int vehNumber = 0;
+    @Override
+    public void getVehiclesInSimulation() {
+        Variant newEnum = Dispatch.get(vehicles, "_NewEnum");
+        EnumVariant enumVariant = newEnum.toEnumVariant();
+        while (enumVariant.hasMoreElements()){
+            Variant variant = enumVariant.nextElement();
+
+        }
 
 
+
+
+
+
+    }
 
 
     public ActiveXComponent getNet() {

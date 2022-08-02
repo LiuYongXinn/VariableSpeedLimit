@@ -12,6 +12,9 @@ public interface NetService {
     //设置流量
     void setVehicleInputByNo(Integer no, Integer volume);
 
+    //获取当前时刻道路的车辆数据
+    void getVehiclesInSimulation();
+
 
     ActiveXComponent getNet();
     ActiveXComponent getLinks();
