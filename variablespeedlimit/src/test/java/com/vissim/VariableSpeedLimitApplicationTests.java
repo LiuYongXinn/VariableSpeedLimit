@@ -36,8 +36,8 @@ class VariableSpeedLimitApplicationTests {
             while (step <= simulationTime){
                 simulationService.RunSingleStep();
 
-
-                if(step > 10){
+                System.out.println("step = " + step);
+                if(step >= 10){
                     netService.getVehiclesInSimulation();
 
                 }

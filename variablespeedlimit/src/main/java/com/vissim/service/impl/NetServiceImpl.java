@@ -4,6 +4,7 @@ import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.EnumVariant;
 import com.jacob.com.Variant;
+import com.vissim.pojo.Vehicle;
 import com.vissim.service.NetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -59,20 +60,22 @@ public class NetServiceImpl implements NetService {
         Dispatch.invoke(vehicleInput,"AttValue", Dispatch.Put, new Object[]{"Volume", volume}, new int[1]);
     }
 
-    int vehNumber = 0;
+
     @Override
     public void getVehiclesInSimulation() {
         Variant newEnum = Dispatch.get(vehicles, "_NewEnum");
-        EnumVariant enumVariant = newEnum.toEnumVariant();
-        while (enumVariant.hasMoreElements()){
-            Variant variant = enumVariant.nextElement();
+        EnumVariant vehiclesEnum = newEnum.toEnumVariant();
+        while (vehiclesEnum.hasMoreElements()){
+            Dispatch vehicleDispatch = vehiclesEnum.nextElement().toDispatch();
+            Vehicle vehicle = new Vehicle();
 
+            vehicle.setId(Dispatch.invoke(vehicleDispatch, "AttValue", Dispatch.Get, new Object[]{"ID"}, new int[1]).getInt());
+            vehicle.setSpeed(Dispatch.invoke(vehicleDispatch, "AttValue", Dispatch.Get, new Object[]{"Speed"}, new int[1]).getDouble());
+            vehicle.setLane(Dispatch.invoke(vehicleDispatch, "AttValue", Dispatch.Get, new Object[]{"Lane"}, new int[1]).getInt());
+            vehicle.setLink(Dispatch.invoke(vehicleDispatch, "AttValue", Dispatch.Get, new Object[]{"Link"}, new int[1]).getInt());
+            vehicle.setLinkCoordinate(Dispatch.invoke(vehicleDispatch, "AttValue", Dispatch.Get, new Object[]{"LINKCOORD"}, new int[1]).getDouble());
+            System.out.println(vehicle);
         }
-
-
-
-
-
 
     }
 
