@@ -2,6 +2,7 @@ package com.vissim.controller;
 
 import com.vissim.pojo.Vehicle;
 import com.vissim.pojo.WeatherEnum;
+import com.vissim.service.EvaluationService;
 import com.vissim.service.NetService;
 import com.vissim.service.SimulationService;
 import com.vissim.service.VissimConnectService;
@@ -24,6 +25,9 @@ public class ConstructionArea {
     @Autowired
     NetService netService;
 
+    @Autowired
+    EvaluationService evaluationService;
+
 
     public void Simulation(int simulationTime, int randSeed, int volume, int speedLimitAction, int sceneAction){
         int step = 1;
@@ -37,6 +41,7 @@ public class ConstructionArea {
             netService.setVehicleInputByNo(1, volume);
             netService.setReduceAreaStartTime(controlTime);
             netService.setDrivingBehavior(WeatherEnum.LIGHT_RAIN);
+
             //开始仿真
             while (step <= simulationTime){
                 simulationService.RunSingleStep();

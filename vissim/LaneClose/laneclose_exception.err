@@ -1,5 +1,6 @@
-Unknown exception
-File: .\lfbdlg.cpp
-Line: 948
-File: .\SelectElemDlg.cpp
-Line: 285
+Exception access violation
+Code : 0xc0000005
+Flags : 0
+Address : 0x506def
+File: .\netzwin.cpp
+Line: 816

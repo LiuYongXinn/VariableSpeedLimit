@@ -1,9 +1,7 @@
 package com.vissim.service;
 
 import com.jacob.activeX.ActiveXComponent;
-import com.vissim.service.impl.NetServiceImpl;
-import com.vissim.service.impl.SimulationServiceImpl;
-import com.vissim.service.impl.VissimConnectServiceServiceImpl;
+import com.vissim.service.impl.VissimConnectServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class UtilsTest {
 
     @Autowired
-    VissimConnectServiceServiceImpl vissimConnectServiceImpl;
+    VissimConnectServiceImpl vissimConnectServiceImpl;
 
     @Autowired
     SimulationService simulationService;

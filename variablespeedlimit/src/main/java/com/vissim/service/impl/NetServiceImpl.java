@@ -7,19 +7,20 @@ import com.jacob.com.Variant;
 import com.vissim.pojo.Vehicle;
 import com.vissim.pojo.WeatherEnum;
 import com.vissim.service.NetService;
+import com.vissim.service.VissimConnectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 @ConfigurationProperties(prefix = "net")
 public class NetServiceImpl implements NetService {
 
     @Autowired
-    VissimConnectServiceServiceImpl vissimConnectServiceImpl;
+    VissimConnectService vissimConnectService;
     private ActiveXComponent net;
     private ActiveXComponent links;
     private ActiveXComponent nodes;
@@ -36,8 +37,8 @@ public class NetServiceImpl implements NetService {
     private WeatherEnum weatherEnum;
 
 
-    public NetServiceImpl(VissimConnectServiceServiceImpl vissimConnectServiceImpl) {
-        net = vissimConnectServiceImpl.getNet();
+    public NetServiceImpl(VissimConnectService vissimConnectService) {
+        net = vissimConnectService.getNet();
         //设置net下的二级接口
         links = net.invokeGetComponent("Links");
         nodes = net.invokeGetComponent("Nodes");

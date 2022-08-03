@@ -3,14 +3,14 @@ package com.vissim.service.impl;
 import com.jacob.activeX.ActiveXComponent;
 import com.vissim.service.VissimConnectService;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
 
-@Component
+@Service
 @ConfigurationProperties(prefix = "vissim")
-public class VissimConnectServiceServiceImpl implements VissimConnectService {
+public class VissimConnectServiceImpl implements VissimConnectService {
 
     private String filePath;
     private String fileName;
@@ -23,7 +23,7 @@ public class VissimConnectServiceServiceImpl implements VissimConnectService {
 
 
 
-    public VissimConnectServiceServiceImpl() {
+    public VissimConnectServiceImpl() {
         initVissim();
     }
 
@@ -40,7 +40,6 @@ public class VissimConnectServiceServiceImpl implements VissimConnectService {
         simulation = vissim.invokeGetComponent("Simulation");
         evaluation = vissim.invokeGetComponent("Evaluation");
 
-
     }
     @PostConstruct
     public void connectModel(){
@@ -49,7 +48,6 @@ public class VissimConnectServiceServiceImpl implements VissimConnectService {
         String inpPath = filePath + fileName + ".inp";
         vissim.invoke("LoadNet", inpPath);
         vissim.invoke("LoadLayout", iniPath);
-        System.out.println("场景连接成功");
     }
 
     public String getFilePath() {

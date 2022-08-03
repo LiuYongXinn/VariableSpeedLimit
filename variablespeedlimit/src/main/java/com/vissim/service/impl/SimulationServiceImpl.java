@@ -3,9 +3,10 @@ package com.vissim.service.impl;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.vissim.service.SimulationService;
+import com.vissim.service.VissimConnectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
@@ -17,12 +18,12 @@ import javax.annotation.PostConstruct;
  * 设置仿真精度
  *
  */
-@Component
+@Service
 @ConfigurationProperties(prefix = "simulation")
 public class SimulationServiceImpl implements SimulationService {
 
     @Autowired
-    VissimConnectServiceServiceImpl vissimConnectServiceImpl;
+    VissimConnectService vissimConnectService;
 
     private ActiveXComponent simulation;
     private Integer simulationTime;
@@ -31,8 +32,8 @@ public class SimulationServiceImpl implements SimulationService {
     private Integer speed;
 
 
-    public SimulationServiceImpl(VissimConnectServiceServiceImpl vissimConnectServiceImpl) {
-        simulation = vissimConnectServiceImpl.getSimulation();
+    public SimulationServiceImpl(VissimConnectService vissimConnectService) {
+        simulation = vissimConnectService.getSimulation();
     }
 
     @PostConstruct
