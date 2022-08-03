@@ -4,10 +4,9 @@ package com.vissim.pojo;
 import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
 
 /**
- * 仿真中车辆数据
+ * 仿真过程得车辆数据
  */
 public class Vehicle {
-
     private Integer id;
     private Integer link;
     private Double linkCoordinate;
@@ -80,11 +79,11 @@ public class Vehicle {
     public String toString() {
         return "Vehicle{" +
                 "id=" + id +
-                ", link='" + link + '\'' +
+                ", link=" + link +
                 ", linkCoordinate=" + linkCoordinate +
-                ", lane='" + lane + '\'' +
+                ", lane=" + lane +
                 ", speed=" + speed +
-                ", step=" + step +
+                ", step=" + step  +
                 '}';
     }
 }

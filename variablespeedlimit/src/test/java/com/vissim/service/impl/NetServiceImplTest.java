@@ -27,7 +27,7 @@ class NetServiceImplTest {
 
     @Test
     public void testGetDesiredSpeedDecisionByNo(){
-        netService.getDesiredSpeedDecisionByNo(3, 1000, 10);
+        netService.setReduceAreaByNo(3, 1000, 10);
     }
 
     @Test
