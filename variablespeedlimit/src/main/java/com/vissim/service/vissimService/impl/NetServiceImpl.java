@@ -1,4 +1,4 @@
-package com.vissim.service.impl;
+package com.vissim.service.vissimService.impl;
 
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
@@ -6,8 +6,8 @@ import com.jacob.com.EnumVariant;
 import com.jacob.com.Variant;
 import com.vissim.pojo.Vehicle;
 import com.vissim.pojo.WeatherEnum;
-import com.vissim.service.NetService;
-import com.vissim.service.VissimConnectService;
+import com.vissim.service.vissimService.NetService;
+import com.vissim.service.vissimService.VissimConnectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;

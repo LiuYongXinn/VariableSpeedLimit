@@ -1,4 +1,4 @@
-package com.vissim.service.dataprocess.dataprocessimpl;
+package com.vissim.service.dataprocess.impl;
 
 import com.vissim.mapper.VehicleDataBeforeMapper;
 import com.vissim.pojo.VehicleDataBefore;

@@ -1,7 +1,8 @@
 package com.vissim.service.impl;
 
 import com.jacob.activeX.ActiveXComponent;
-import com.vissim.service.NetService;
+import com.vissim.service.vissimService.NetService;
+import com.vissim.service.vissimService.impl.VissimConnectServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

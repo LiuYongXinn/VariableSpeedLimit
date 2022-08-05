@@ -1,16 +1,9 @@
 package com.vissim;
 
-import com.jacob.activeX.ActiveXComponent;
 import com.vissim.controller.ConstructionArea;
-import com.vissim.pojo.Vehicle;
-import com.vissim.service.NetService;
-import com.vissim.service.SimulationService;
-import com.vissim.service.VissimConnectService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 @SpringBootTest
 class VariableSpeedLimitApplicationTests {

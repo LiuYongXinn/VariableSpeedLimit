@@ -1,7 +1,7 @@
-package com.vissim.service.impl;
+package com.vissim.service.vissimService.impl;
 
 import com.jacob.activeX.ActiveXComponent;
-import com.vissim.service.VissimConnectService;
+import com.vissim.service.vissimService.VissimConnectService;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 

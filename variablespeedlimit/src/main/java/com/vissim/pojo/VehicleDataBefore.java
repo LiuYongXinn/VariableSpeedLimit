@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  */
 
 @TableName("vehicle_data_before")
-public class VehicleDataBefore {
+public class VehicleDataBefore extends VehicleData{
     private int densityBefore;
     private int densityAfter;
     private int speedLimit;
