@@ -19,8 +19,7 @@ class FileDataReadingServiceImplTest {
     @Test
     void readVehicleData() {
         String strFile = "E:\\JAVALearn\\VariableSpeedLimit\\vissim\\LaneClose\\laneclose.fzp";
-        List<String> fileData = fileDataReadingService.readVehicleData(strFile);
-        List<Double[]> vehiclesDataDouble = fileDataReadingService.vehicleDataStringToNumber(fileData);
+
 
 
     }

@@ -18,14 +18,34 @@ public class FileDataReadingServiceImpl implements FileDataReadingService {
 
 
     @Override
-    public IntermediateConnection readUniversalData(String strFile, int speedLimit, int sceneLimit, int randSeed) {
+    public IntermediateConnection readUniversalData(List<Double[]> fileData ,int speedLimit, int sceneLimit, int randSeed) {
+        double beforeTime = 1200.0;
+        double afterTime = 1800.0;
+        double linNum = 4;
+
+        for (Double[] linkData: fileData) {
+            if (linkData[0] == beforeTime){
+
+            } else if (linkData[0] == afterTime) {
+
+            }else {
+                continue;
+            }
+        }
+
+
+        IntermediateConnection universalData = new IntermediateConnection();
+        universalData.setRandSeed(randSeed);
+        universalData.setSceneLimit(sceneLimit);
+        universalData.setSpeedLimit(speedLimit);
+
         return null;
+
     }
 
     @Override
-    public List<String> readVehicleData(String strFile) {
+    public List<String> readFileData(String strFile, int startLine) {
         List<String> fileData = new ArrayList<>();
-
         try {
             File file = new File(strFile);
             if(file.isFile() && file.exists()){
@@ -35,7 +55,7 @@ public class FileDataReadingServiceImpl implements FileDataReadingService {
                 int num = 0;
                 while ((lineTxt = br.readLine()) != null){
                     num++;
-                    if(num <= 21){
+                    if(num <= startLine){
                         continue;
                     }
                     fileData.add(lineTxt);
@@ -52,17 +72,17 @@ public class FileDataReadingServiceImpl implements FileDataReadingService {
 
 
     @Override
-    public List<Double[]> vehicleDataStringToNumber(List<String> vehiclesData) {
-        List<Double[]> vehiclesDataNum = new ArrayList<>();
-        for (String vehicleStr: vehiclesData) {
-            String[] vehicleStrArr = vehicleStr.split(";");
+    public List<Double[]> vehicleDataStringToNumber(List<String> fileData) {
+        List<Double[]> fileDataNum = new ArrayList<>();
+        for (String fileStr: fileData) {
+            String[] vehicleStrArr = fileStr.split(";");
             Double[] vehicleDouble = new Double[vehicleStrArr.length - 1];
             for (int i = 0; i < vehicleStrArr.length - 1; i++) {
                 vehicleDouble[i] = Double.valueOf(vehicleStrArr[i]);
             }
-            vehiclesDataNum.add(vehicleDouble);
+            fileDataNum.add(vehicleDouble);
         }
-        return vehiclesDataNum;
+        return fileDataNum;
     }
 
     @Override

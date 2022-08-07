@@ -16,14 +16,14 @@ public interface FileDataReadingService {
      * @param randSeed 随机种子
      * @return 返回通用数据对象
      */
-    IntermediateConnection readUniversalData(String strFile , int speedLimit, int sceneLimit, int randSeed);
+    IntermediateConnection readUniversalData(List<Double[]> fileData ,int speedLimit, int sceneLimit, int randSeed);
 
     /**
      * 读取车辆数据文件
      * @param strFile 车辆数据文件*.fzp路径
      * @return 包含当前仿真所有的车辆数据集合
      */
-    List<String> readVehicleData(String strFile);
+    List<String> readFileData(String strFile, int startLine);
 
 
     /**
